@@ -1,9 +1,9 @@
-public class AddProduct extends Program implements Menu {
+public class SearchAgainMenu implements Menu {
     @Override
     public Menu handleInput(String command) {
         switch (command) {
             case "ja":
-                return new CreateProductMenu();
+                return new SearchProduct();
             case "nej":
                 return new MainMenu();
             default:
@@ -14,6 +14,7 @@ public class AddProduct extends Program implements Menu {
 
     @Override
     public void printMenu() {
-        System.out.println("Vill du lägga till en ny produkt? ja/nej");
+        System.out.println("Vill du söka efter en ny produkt? ja/nej");
+
     }
 }

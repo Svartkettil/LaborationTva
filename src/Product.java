@@ -8,12 +8,7 @@ public final class Product {
     private String category;
     private int saldo;
 
-    public Product(int productId, String productName, BigDecimal price, String category, int saldo) {
-        this.productId = productId;
-        this.productName = productName;
-        this.price = price;
-        this.category = category;
-        this.saldo = saldo;
+    public Product() {
     }
 
     @Override
@@ -52,7 +47,8 @@ public final class Product {
     public int saldo() {
         return saldo;
     }
-    public void setSaldo(int saldo){
+
+    public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
 
@@ -76,7 +72,6 @@ public final class Product {
     public int hashCode() {
         return Objects.hash(productId, productName, price, category, saldo);
     }
-
 
 }
 

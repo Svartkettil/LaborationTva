@@ -1,28 +1,32 @@
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
-public class ShowProduct implements Menu{
-    public void showProducts(ArrayList<Product> listOfProducts){
-        listOfProducts.stream().forEach(System.out::println);
+public class ShowProduct implements Menu {
+    public void showProducts(ArrayList<Product> listOfProducts) {
+        listOfProducts.forEach(System.out::println);
     }
+
     @Override
     public Menu handleInput(String command) {
-        return new MainMenu();
+        switch (command) {
+            case "1":
+                showProducts(Program.listOfProducts);
+                return this;
+            case "2":
+                return new MainMenu();
+            default:
+                System.out.println("Fel inmatning");
+                return this;
+        }
     }
 
     @Override
-    public void printMenu(ArrayList<Product> listOfProducts, Scanner sc) {
-        System.out.println("""
+    public void printMenu() {
+        System.out.print("""
                 1: Visa alla produkter
-                3: Tillbaks till huvudmenyn
+                2: Tillbaka
                 """);
-        String choice = sc.nextLine();
-        switch (choice) {
-            case "1" -> showProducts(listOfProducts);
-            case "2" -> new MainMenu();
-            default -> printMenu(listOfProducts, sc);
 
-        }
+
     }
+
 }
